@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-// import { switchMap } from 'rxjs/operators';
-
 import { QuestionsService } from '../questions.service';
 import { Quiz, Answers, Choice, Question } from '../quiz.model';
+import { ResultsComponent } from '../results/results.component';
 
 @Component({
   selector: 'app-questions',
@@ -17,11 +16,13 @@ export class QuestionsComponent implements OnInit {
   answers: Answers;
   questions: Question[];
   currentQuestionIndex: number;
+  ansCorrect: any;
+  ansCount = 0;
 
   showResults = false;
 
   // inject both the active route and the questions service
-  constructor(private route: ActivatedRoute, public questionsService: QuestionsService) {}
+  constructor(private route: ActivatedRoute, public questionsService: QuestionsService,public resultComp:ResultsComponent) { }
 
   ngOnInit() {
 
@@ -42,6 +43,7 @@ export class QuestionsComponent implements OnInit {
   nextOrViewResults() {
     if (this.currentQuestionIndex === this.questions.length - 1) {
       this.showResults = true;
+      this.getJson();
       return;
     }
 
@@ -53,5 +55,21 @@ export class QuestionsComponent implements OnInit {
     this.questions = undefined;
     this.answers = undefined;
     this.currentQuestionIndex = undefined;
+  }
+  getJson() {
+    
+    this.ansCorrect = this.answers.values;
+    for (var i = 0; i < this.answers.values.length; i++) {
+      if (this.ansCorrect[i].correct === true) {
+        this.ansCount++;
+      }
+    }
+    this.ansCount=this.ansCount;
+    var comJson={
+      quizData:this.answers.values,
+      scoreCount:this.ansCount
+    }
+    this.resultComp.getCompleteJson(comJson)
+
   }
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,8 @@ import { QuestionsComponent } from './questions/questions.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatRadioModule, MatButtonModule, MatCardModule } from '@angular/material';
+// import { MatRadioModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule,MatToolbar } from '@angular/material';
+import {MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule, MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatRadioModule,MatListModule, MatToolbar,} from  '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -30,14 +31,19 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
     MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatButtonModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ResultsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

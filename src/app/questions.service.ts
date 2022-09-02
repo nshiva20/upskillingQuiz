@@ -8,7 +8,7 @@ import { Quiz, Question } from './quiz.model';
 })
 export class QuestionsService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public getQuizzes() {
     return this.http.get(`./assets/quiz-list.json`).pipe(
@@ -24,5 +24,8 @@ export class QuestionsService {
         return result.map(r => new Question(r.label, r.choices));
       })
     );
+  }
+  public getUserData(userData) {
+    return userData;
   }
 }
