@@ -1,0 +1,56 @@
+<div class="welcome">
+  <h1>Quiz app!</h1>
+  <div class="quizzes">
+
+    <mat-card class="quiz" *ngFor="let quiz of quiz">
+      <mat-card-content>
+        <form [formGroup]="welcomeForm" (submit)="getUser(name,email)">
+          <mat-form-field class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" name="name" [(ngModel)]="name" formControlName="name">   
+          </mat-form-field>
+          <mat-error *ngIf="(welcomeForm.get('name')?.touched||welcomeForm.get('name')?.dirty) && welcomeForm.get('name')?.hasError('required')">
+            Name is Required!
+          </mat-error>
+          <mat-error *ngIf="(welcomeForm.get('name')?.touched||welcomeForm.get('name')?.dirty) && welcomeForm.get('name')?.hasError('minlength')">
+            Name should be atleast 3 characters long!
+          </mat-error>     
+
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" [(ngModel)]="email" formControlName="email">
+          </mat-form-field>
+          <mat-error *ngIf="(welcomeForm.get('email')?.touched||welcomeForm.get('email')?.dirty) && welcomeForm.get('email')?.hasError('required')">
+            Email is Required!
+          </mat-error>
+          <mat-error *ngIf="(welcomeForm.get('email')?.touched||welcomeForm.get('email')?.dirty) && welcomeForm.get('email')?.hasError('email')">
+           Enter Valid email ID!
+          </mat-error>
+          <mat-form-field>
+            <a routerLink="/{{quiz.name}}">
+              <button class="primary" [disabled]="welcomeForm.invalid" (click)="getUser()">Start quiz</button>
+            </a>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <mat-card class="quiz" *ngFor="let quiz of quiz">
+   <mat-card-content>
+      <form [formGroup]="my-form">
+         <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input  matInput  placeholder="Email" name="email">
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input  matInput  placeholder="Password" name="password">
+         </mat-form-field>
+      </form>
+   </mat-card-content>
+   <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+   </mat-card-actions>
+</mat-card> -->

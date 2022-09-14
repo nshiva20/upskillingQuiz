@@ -1,0 +1,29 @@
+[
+  {
+    "label": "AngularJS is a ____",
+    "choices": [
+      { "value": "Java Framework", "correct": false },
+      { "value": "Javascript Framework", "correct": true },
+      { "value": "HTML Framework", "correct": false },
+      { "value": "None of the above", "correct": false }
+    ]
+  },
+  {
+    "label": "Http service supports following operations",
+    "choices": [
+      {"value": "Get, Put, Post , Delete", "correct": true},
+      {"value": "Get, Post, Put", "correct": false},
+      {"value": "Get, Post , Delete", "correct": false},
+      {"value": "Get , Post", "correct": false}
+    ]
+  },
+  {
+    "label": "What mechanism is used to use a service in a component?",
+    "choices": [
+      {"value": "Dependency Injection", "correct": true},
+      {"value": "Legacy", "correct": false},
+      {"value": "Polymorphism", "correct": false},
+      {"value": "none of the above", "correct": false}
+    ]
+  }
+]
