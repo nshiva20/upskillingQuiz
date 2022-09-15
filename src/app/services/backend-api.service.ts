@@ -12,7 +12,7 @@ export class BackendApiService {
   constructor(private http: HttpClient) { }
   create(data: any) {
     // alert(JSON.stringify(data));
-    return this.http.post("http://localhost:3000/userData", data).subscribe();
+    return this.http.post("https://upskillingapi.herokuapp.com/userData", data).subscribe();
   }
 
   
