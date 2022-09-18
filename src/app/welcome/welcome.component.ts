@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { QuestionsService } from '../questions.service';
 import { Quiz } from '../quiz.model';
 import { ResultsComponent } from '../results/results.component';
+import { BackendApiService } from '../services/backend-api.service';
 
 @Component({
   selector: 'app-welcome',
@@ -22,22 +24,29 @@ export class WelcomeComponent {
     });
 
   }
-  constructor(private questionsService: QuestionsService, public resComp: ResultsComponent, private formBuilder: FormBuilder) {
+  constructor(private questionsService: QuestionsService, public resComp: ResultsComponent, private formBuilder: FormBuilder, private apiService:BackendApiService, private route:Router) {
     this.questionsService.getQuizzes()
       .subscribe(quiz => {
         this.quiz = quiz;
       });
   }
-  getUser(name: any, email: any) {
+  getUser(name: any, email: any, url:string) {
     let userDetails = {
       name,
-      email
+      email,
     };
     userDetails.name = this.name;
-    userDetails.email = this.email;
+    userDetails.email = this.email; 
     // alert(JSON.stringify(userDetails));
     // this.questionsService.getUserData(userDetails);
     this.resComp.getUserData(userDetails);
+    // console.log(userDetails);
+    this.apiService.checkAccess(userDetails).subscribe((res:any)=>{
+      if(res.response){
+        this.route.navigate(['/'+url]);
+      }
+    })
+    // 
   }
 
   reset() {
