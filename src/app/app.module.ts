@@ -16,10 +16,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldControl } from '@angular/material/form-field'
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field'
 import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatInputModule } from '@angular/material/input';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { BackendApiService } from './services/backend-api.service';
+
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
     MatButtonModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ResultsComponent, BackendApiService],
+  providers: [ResultsComponent, BackendApiService,
+    [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'legacy'}}],
+  [{provide: MatFormFieldControl}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,5 +15,9 @@ export class BackendApiService {
     return this.http.post("https://upskillingapi.herokuapp.com/userData", data).subscribe();
   }
 
+  checkAccess(data:any){
+    return this.http.post("https://upskillingapi.herokuapp.com/checkAccess",data);
+  }
+
   
 }
