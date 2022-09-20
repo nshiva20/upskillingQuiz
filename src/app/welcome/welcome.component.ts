@@ -42,7 +42,9 @@ export class WelcomeComponent {
     this.resComp.getUserData(userDetails);
     // console.log(userDetails);
     this.apiService.checkAccess(userDetails).subscribe((res:any)=>{
-      if(res.response){
+      // alert(JSON.stringify(res) +" ____________")
+      if(res.response==true){
+        // alert("in here")
         this.route.navigate(['/'+url]);
       }
     })
