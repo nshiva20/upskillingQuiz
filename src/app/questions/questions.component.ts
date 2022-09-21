@@ -17,7 +17,7 @@ export class QuestionsComponent implements OnInit {
   questions!: Question[];
   currentQuestionIndex!: number;
   ansCorrect: any;
-  ansCount = 0;
+  ansCount;
   userDetails;
   showResults = false;
 
