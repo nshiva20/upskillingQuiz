@@ -1,26 +1,15 @@
 [
   {
-    "label": "AngularJS is a ____",
+    "label": "1. Which DOM elements will this component metadata selector match on? \n@Component({selector: 'app-user-card',. . .    });",
     "choices": [
-      { "value": "Java Framework", "correct": false },
-      { "value": "Javascript Framework", "correct": true },
-      { "value": "HTML Framework", "correct": false },
-      { "value": "None of the above", "correct": false }
+      { "value": "Any element with the attribute app-user-card, such as <div app-user-card></div>.", "correct": false },
+      { "value": "The first instance of <app-user-card></app-user-card>.", "correct": false },
+      { "value": "All instances of <app-user-card></app-user-card>", "correct": true },
+      { "value": "All instances of <user-card></user-card>.", "correct": false }
     ]
   },
   {
-    "label": "Among the following, on which architectural pattern is AngularJS based?",
-    "choices": [
-      { "value": "Decorator Pattern", "correct": false },
-      { "value": "Observer Pattern", "correct": false },
-      { "value": "MVVM Architecture", "correct": true },
-      { "value": "MVM Architecture", "correct": false
-      }
-    ]
-  }
-  ,
-  {
-    "label": "Syntax for Angular Expression",
+    "label": "2. Syntax for Angular Expression",
     "choices": [
       {"value": "[expression]", "correct": false},
       {"value": "{expressions}", "correct": false},
@@ -29,7 +18,7 @@
     ]
   },
   {
-    "label": "What is Form Builder?",
+    "label": "3. What is Form Builder?",
     "choices": [
       {"value": "Function for generating reactive forms in run-time", "correct": false},
       {"value": "Class for generating template-driven forms in run-time", "correct": false},
@@ -38,14 +27,15 @@
     ]
   },
   {
-    "label": "Can an HTML page have multiple “ng-app” directive for bootstrapping multiple AngularJS application?",
+    "label": "4. What is the correct template syntax for using the built-in ngFor structural directive to render out a list of productNames?",
     "choices": [
-      {"value": "Yes", "correct": false},
-      {"value": "No", "correct": true}
+      {"value": "<ul>  <li [ngFor]='let productName of productNames'>{{ productName }}</li>    </ul>", "correct": false},
+      {"value": "<ul>  <li ngFor='let productName of productNames'>{{ productName }}</li>    </ul>", "correct": false},
+      {"value": "<ul>  <li *ngFor='let productName of productNames'>{{ productName }}</li>    </ul>","correct":true}
     ]
   },
   {
-    "label": " Let x: [string, number];x = [10, 'hello'];What will be the output of program ?",
+    "label": "5. Let x: [string, number];x = [10, 'hello'];What will be the output of program ?",
     "choices": [
       {"value": "prints [ 'hello', 10 ]", "correct": false},
       {"value": "prints output as shown belowhello10", "correct": false},
@@ -54,7 +44,7 @@
     ]
   },
   {
-    "label": " Let x: [string, number];x = [10, 'hello'];What will be the output of program ?",
+    "label": "6. Let x: [string, number];x = [10, 'hello'];What will be the output of program ?",
     "choices": [
       {"value": "from parent to child", "correct": true},
       {"value": "from child to parent", "correct": false},
@@ -63,37 +53,82 @@
     ]
   },
   {
-    "label": "Which type of binding uses the banana box [()]",
+    "label": "7. With the following component class, what template syntax would you use in the template to display the value of the title class field?\n @Component({ selector: 'app-title-card', template: '', })\n class TitleCardComponent { title = 'User Data'; }",
     "choices": [
-      {"value": "Property Binding", "correct": false},
-      {"value": "Interpolation Binding", "correct": false},
-      {"value": "Two way Binding", "correct": true},
-      {"value": "Directive Binding", "correct": false}
+      {"value": "{{ 'title' }}", "correct": false},
+      {"value": "{{ title }}", "correct": true},
+      {"value": "[title]", "correct": false},
+      {"value": "A class field cannot be displayed in a template via the template syntax", "correct": false}
     ]
   },
   {
-    "label": "Are you required to create an app rounting Module in an angular Application?",
+    "label": "8. How can you disable the submit button when the form has errors in this template-driven forms example? \n <form #userForm='ngForm'> \n <input type='text' ngModel name='firstName' required /> \n <input type='text' ngModel name='lastName' required />\n <button (click)='submit(userForm.value)'>Save</button></form>",
     "choices": [
-      {"value": "True", "correct": false},
-      {"value": "False", "correct": true}
+      {"value": "<button (click)='submit(userForm.value)' disable='userForm.invalid'>Save</button>", "correct": false},
+      {"value": "<button (click)='submit(userForm.value)' [disabled]='userForm.invalid'>Save</button>", "correct": true},
+      {"value": "<button (click)='submit(userForm.value)' ngForm.disabled]='userForm.valid'>Save</button>", "correct": false}
     ]
   },
   {
-    "label": "Http service supports following operations",
+    "label": "9. How would you configure a route definition for a UserDetailComponent that supports the URL path user/23 (where 23 represents the id of the requested user)?",
     "choices": [
-      {"value": "Get, Put, Post , Delete", "correct": true},
-      {"value": "Get, Post, Put", "correct": false},
-      {"value": "Get, Post , Delete", "correct": false},
-      {"value": "Get , Post", "correct": false}
-    ]
-  },
-  {
-    "label": "What mechanism is used to use a service in a component?",
-    "choices": [
-      {"value": "Dependency Injection", "correct": true},
-      {"value": "Legacy", "correct": false},
-      {"value": "Polymorphism", "correct": false},
+      {"value": "{ path: 'user/:id', component: UserDetailComponent } ", "correct": true},
+      {"value": "{ url: 'user/:id', routedComponent: UserDetailComponent }", "correct": false},
+      {"value": "{ routedPath: 'user/:id', component: UserDetailComponent }", "correct": false},
       {"value": "none of the above", "correct": false}
+    ]
+  },
+  {
+    "label":"10. Which Angular CLI command would you run to generate a UsersComponent and add it to the SharedModule (in file shared.module.ts in your application)?",
+    "choices":[
+      {"value":"ng generate component --newModule=shared","correct":false},
+      {"value":"ng generate component users --module=shared","correct":true},
+      {"value":"ng generate component users --shared","correct":false},
+      {"value":"ng generate component --add=shared","correct":false}
+    ]
+  },
+  {
+    "label": "11. Which is the correct syntax to declare a constant in JavaScript?",
+    "choices": [
+      { "value": "const constant_name;", "correct": false },
+      { "value": "constant_name const;", "correct": false },
+      { "value": "constant_name const = value", "correct": false },
+      { "value": "const constant_name = value", "correct": true  }
+    ]
+  },
+  {
+    "label": "12. What will be the value of VALUE? \n <script> \nconst VALUE = 10; \n VALUE = 20; \n </script>",
+    "choices": [
+      {"value": "10", "correct": false},
+      {"value": "20", "correct": false},
+      {"value": "ValueError", "correct": false},
+      {"value": "TypeError", "correct": true}
+    ]
+  },
+  {
+    "label": "13. What is the default value of an uninitialized variable?",
+    "choices": [
+      {"value": "Function for generating reactive forms in run-time", "correct": false},
+      {"value": "Class for generating template-driven forms in run-time", "correct": false},
+      {"value": "Class for generating reactive forms in run-time", "correct": true},
+      {"value": "Function for generating template-driven forms in run-time", "correct": false}
+    ]
+  },
+  {
+    "label": "14. What is the output of the following JavaScript code? \n <script> \n var name = 'Alex' + ' '+ 'Alvin'; \n document.getElementById('demo').innerHTML = name; \n </script>",
+    "choices": [
+      { "value": "Alex Alvin", "correct": true },
+      { "value": "AlexAlvin", "correct": false },
+      { "value": "TypeError", "correct": true },
+      { "value": "ValueError", "correct": false
+      }
+    ]
+  },
+  {
+    "label": "15. Can be redeclare a variable that is declared with let keyword?",
+    "choices": [
+      {"value": "Yes", "correct": false},
+      {"value": "No", "correct": true}
     ]
   }
 ]
