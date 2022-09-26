@@ -44,7 +44,7 @@ export class WelcomeComponent {
     this.apiService.checkAccess(userDetails).subscribe((res:any)=>{
       // alert(JSON.stringify(res) +" ____________")
       if(res.response==true){
-        alert("in here")
+        // alert("in here")
         this.route.navigate(['/'+url]);
       }
     })
